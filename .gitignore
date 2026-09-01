@@ -1,0 +1,108 @@
+# =======================================
+#               AgriKart 
+# =======================================
+
+# ---- Scratch / Internal folders ----
+z/
+z/**
+
+# ---- Environment Variables ----
+.env
+.env.*
+*.env
+*.env.*
+**/.env
+**/.env.*
+**/*.env
+**/*.env.*
+
+models/
+./dataset
+dataset/
+
+# ---- Dependencies ----
+node_modules/
+tests/node_modules/
+tests/package-lock.json
+.pnp
+.pnp.js
+
+# ---- Next.js ----
+.next/
+out/
+.cache/
+
+# ---- Production Build ----
+build/
+dist/
+
+# ---- Package lock files (keep only one) ----
+package-lock.json
+
+# ---- Testing & Coverage ----
+coverage/
+.nyc_output/
+*.lcov
+
+# ---- Logs ----
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# ---- IDE & Editors ----
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.sublime-project
+*.sublime-workspace
+
+# ---- OS Generated ----
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ---- Database ----
+*.sqlite
+*.sqlite3
+*.db
+
+# ---- Hosting Platforms ----
+.vercel
+.netlify
+
+# ---- Mobile (future) ----
+mobile/node_modules/
+mobile/.expo/
+mobile/.expo-shared/
+
+# ---- Python (scripts/tools) ----
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+**/*.egg-info/
+**/.env/
+**/venv/
+**/.venv/
+
+# ---- Misc ----
+**/*.tgz
+**/*.zip
+**/.temp/
+**/tmp/
+**/env.txt
+**/.pytest_cache/
+**/.sixth/
+
+consolidated_schema.sql
+seed.sql
