@@ -1,20 +1,23 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "nodenext",
+    "module": "CommonJS",
+    "moduleResolution": "node",
     "lib": ["ES2020"],
-    "moduleResolution": "Node16",
     "outDir": "./dist",
     "rootDir": "./src",
+
     "strict": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
+
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "ignoreDeprecations": "5.0",
+
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
@@ -25,14 +28,16 @@
       "@types/*": ["src/types/*"],
       "@utils/*": ["src/utils/*"]
     },
-    "allowSyntheticDefaultImports": true,
+
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "useDefineForClassFields": true
   },
+
   "include": [
     "src/**/*"
   ],
+
   "exclude": [
     "node_modules",
     "dist",

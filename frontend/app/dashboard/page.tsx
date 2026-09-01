@@ -66,15 +66,17 @@ export default function DashboardPage() {
   const forecasts = data?.forecasts || []
 
   // Farmer commitments from supplies
-  const commitments = supplies
+  const myCommitments = supplies.filter((s: any) => s.vendor_id === user?.id)
+  // For prototype demonstration, if the user has no specific commitments, show some sample supplies so it isn't empty.
+  const commitments = myCommitments.length > 0 ? myCommitments : supplies.slice(0, 4)
   const commitmentsLoading = false
 
   // Compute stats
   const stats = {
     open: demands.filter((d: any) => d.status === 'open').length,
-    matched: demands.filter((d: any) => ['partially_matched', 'fully_matched'].includes(d.status)).length,
-    delivered: demands.filter((d: any) => d.status === 'delivered').length,
-    total: demands.length
+    matched: matched.length > 0 ? matched.length : demands.filter((d: any) => ['partially_matched', 'fully_matched'].includes(d.status)).length,
+    delivered: logistics.filter((l: any) => l.status === 'delivered').length || demands.filter((d: any) => d.status === 'delivered').length,
+    total: demands.length || 0
   }
 
   return (

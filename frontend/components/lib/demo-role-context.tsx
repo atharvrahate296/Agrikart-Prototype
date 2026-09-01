@@ -124,6 +124,7 @@ export function DemoRoleProvider({ children }: { children: ReactNode }) {
       const { data: products } = await supabase.from('products').select('*')
       const mappedSupplies = (products || []).map(p => ({
         id: p.id,
+        vendor_id: p.vendor_id,
         crop_type: p.name,
         variety: p.category,
         available_quantity: p.stock_quantity > 0 ? p.stock_quantity : p.quantity_in_stock,
@@ -137,15 +138,18 @@ export function DemoRoleProvider({ children }: { children: ReactNode }) {
       const { data: orders } = await supabase.from('orders').select('*')
 
       // Fetch other data
-      const { data: demands } = await supabase.from('demands').select('*')
+      const { data: demands, error: dErr } = await supabase.from('demands').select('*')
+      if (dErr) console.error('Demands fetch error:', dErr)
+
       const { data: logistics } = await supabase.from('logistics').select('*')
       const { data: settlements } = await supabase.from('settlements').select('*')
       const { data: forecasts } = await supabase.from('forecasts').select('*')
+      const { data: matched } = await supabase.from('matched').select('*')
 
       setData({
         demands: demands || [],
         supplies: mappedSupplies,
-        matched: [], // Add matched table if needed later
+        matched: matched || [],
         orders: orders || [],
         logistics: logistics || [],
         settlements: settlements || [],
